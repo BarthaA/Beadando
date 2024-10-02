@@ -1,13 +1,67 @@
 <!DOCTYPE html>
-<html>
+<html lang="hu">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title><%= message %></title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Megrendelés</title>
 </head>
 <body>
-    <p><%= message %></p>
+  <h1>Termék kiválasztása</h1>
+  <form id="orderForm" method="POST" action="/orders">
+    <label for="product">Válassz terméket:</label><br>
+    <input type="radio" id="product1" name="product" value="termék1">
+    <label for="product1">Termék 1 <img src="product1.jpg" alt="Termék 1"></label><br>
+    <input type="radio" id="product2" name="product" value="termék2">
+    <label for="product2">Termék 2 <img src="product2.jpg" alt="Termék 2"></label><br><br>
+    <input type="radio" id="product3" name="product" value="termék3">
+    <label for="product3">Termék 3 <img src="product3.jpg" alt="Termék 3"></label><br><br>
+
+
+    <label for="name">Név:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <h2>Számlázási cím</h2>
+    <label for="billingCountry">Ország:</label><br>
+    <input type="text" id="billingCountry" name="billingCountry" required><br><br>
+
+    <label for="billingZip">Irányítószám:</label><br>
+    <input type="text" id="billingZip" name="billingZip" required><br><br>
+
+    <label for="billingCity">Város:</label><br>
+    <input type="text" id="billingCity" name="billingCity" required><br><br>
+
+    <label for="billingAddress">Utca és házszám:</label><br>
+    <input type="text" id="billingAddress" name="billingAddress" required><br><br>
+
+    <h2>Szállítási cím (ha különbözik)</h2>
+    <label for="shippingCountry">Ország:</label><br>
+    <input type="text" id="shippingCountry" name="shippingCountry"><br><br>
+
+    <label for="shippingZip">Irányítószám:</label><br>
+    <input type="text" id="shippingZip" name="shippingZip"><br><br>
+
+    <label for="shippingCity">Város:</label><br>
+    <input type="text" id="shippingCity" name="shippingCity"><br><br>
+
+    <label for="shippingAddress">Utca és házszám:</label><br>
+    <input type="text" id="shippingAddress" name="shippingAddress"><br><br>
+
+    <!-- Kuponkód -->
+    <label for="coupon">Kuponkód (opcionális):</label><br>
+    <input type="text" id="coupon" name="coupon" pattern="[A-Z]{2}-\d{4}"><br><br>
+
+
+    <h2>Bankkártya adatok</h2>
+    <label for="cardNumber">Kártyaszám:</label><br>
+    <input type="text" id="cardNumber" name="cardNumber" pattern="\d{4}-\d{4}-\d{4}-\d{4}" required><br><br>
+
+    <label for="expirationDate">Lejárati dátum (MM/YY):</label><br>
+    <input type="text" id="expirationDate" name="expirationDate" pattern="\d{2}/\d{2}" required><br><br>
+
+    <label for="securityCode">Biztonsági kód:</label><br>
+    <input type="text" id="securityCode" name="securityCode" pattern="\d{3}" required><br><br>
+
+    <button type="submit">Rendelés leadása</button>
+  </form>
 </body>
 </html>
